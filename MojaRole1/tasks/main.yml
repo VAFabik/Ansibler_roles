@@ -1,0 +1,9 @@
+---
+- name: role1
+  package:
+    name:
+      - unzip
+      - net-tools
+    state: present
+
+# tasks file for MojaRole1
