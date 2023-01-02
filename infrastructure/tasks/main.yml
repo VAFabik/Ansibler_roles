@@ -1,0 +1,17 @@
+- name: Automatyzacja Infrastruktury
+  pip:
+    name:
+      - docker-compose
+      - docker
+
+- name: Git checkout
+  git:
+    repo: "{{ git_repository }}"
+    dest: "{{  deployment_path }}"
+    version: "{{  git_branch }}"
+
+- name: Run docker-compose up
+  docker_compose:
+    project_src: "{{  deployment_path }}"
+    build: yes
+    debug: yes
